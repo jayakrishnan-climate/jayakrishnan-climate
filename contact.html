@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Climate Blog</title>
+<meta name="description" content="Get in touch — email, social links, and a contact form.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="stripe-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="index.html">Climate Blog</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Archive</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <h1>Contact</h1>
+  <p class="lede">Questions, corrections, or collaboration ideas — I read everything that comes in.</p>
+
+  <ul class="contact-links">
+    <li>Email — <a href="mailto:you@example.com">you@example.com</a></li>
+    <li>Twitter / X — <a href="https://twitter.com/yourhandle">@yourhandle</a></li>
+    <li>LinkedIn — <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></li>
+    <li>GitHub — <a href="https://github.com/yourusername">github.com/yourusername</a></li>
+  </ul>
+
+  <h2>Send a message</h2>
+  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="_replyto" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send message</button>
+  </form>
+  <p class="form-note">This form needs a free <a href="https://formspree.io">Formspree</a> endpoint to actually send email — sign up, create a form, and replace YOUR_FORM_ID in the HTML with the ID they give you. Until then, use the email link above.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Climate Blog</span>
+    <span><a href="contact.html">Get in touch</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+/* ===========================================================
+   Climate Blog — shared stylesheet
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --paper: #F1F4F1;
+  --paper-raised: #FFFFFF;
+  --ink: #1E2A28;
+  --ink-muted: #5B6B67;
+  --accent: #2F6659;
+  --accent-dark: #234C43;
+  --clay: #B9542A;
+  --line: #D8DED7;
+
+  --stripe-1: #2B5B77;
+  --stripe-2: #4B8098;
+  --stripe-3: #A7C4B5;
+  --stripe-4: #E7C79A;
+  --stripe-5: #D98A5F;
+  --stripe-6: #B4432B;
+
+  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --measure: 700px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--accent-dark); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--stripe-1);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* -----------------------------------------------------------
+   Warming-stripe bar — the one recurring graphic motif
+   ----------------------------------------------------------- */
+.stripe-bar {
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    var(--stripe-1), var(--stripe-2), var(--stripe-3),
+    var(--stripe-4), var(--stripe-5), var(--stripe-6)
+  );
+}
+
+/* -----------------------------------------------------------
+   Header / nav
+   ----------------------------------------------------------- */
+header.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-raised);
+}
+
+.header-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark:hover { color: var(--ink); }
+
+nav.site-nav {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  display: flex;
+  gap: 1.35rem;
+}
+nav.site-nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+nav.site-nav a:hover,
+nav.site-nav a[aria-current="page"] {
+  color: var(--accent-dark);
+}
+nav.site-nav a[aria-current="page"] {
+  border-bottom: 2px solid var(--stripe-5);
+  padding-bottom: 2px;
+}
+
+/* -----------------------------------------------------------
+   Main content wrapper
+   ----------------------------------------------------------- */
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+main.wide {
+  max-width: 780px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
+}
+
+h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 0 0.3rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+.lede {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 1.15rem;
+  max-width: 46ch;
+  margin: 0 0 2.75rem;
+}
+
+.meta {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.tag {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  padding-left: 0.55rem;
+  border-left: 2px solid var(--stripe-1);
+}
+
+/* -----------------------------------------------------------
+   Featured / pinned post
+   ----------------------------------------------------------- */
+.featured {
+  border-left: 3px solid var(--clay);
+  padding: 0.2rem 0 0.2rem 1.5rem;
+  margin: 0 0 3rem;
+}
+.featured .eyebrow-plain {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--clay);
+  margin: 0 0 0.5rem;
+}
+.featured h2 { font-size: 1.6rem; }
+.featured p.excerpt {
+  color: var(--ink-muted);
+  margin: 0.5rem 0 0.75rem;
+}
+
+/* -----------------------------------------------------------
+   Post lists (Latest updates, Archive)
+   ----------------------------------------------------------- */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 0;
+}
+.post-list li:last-child { border-bottom: 1px solid var(--line); }
+
+.post-list h3 {
+  margin: 0.15rem 0 0.35rem;
+}
+.post-list h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.post-list h3 a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.post-list p.excerpt {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.98rem;
+}
+
+.year-heading {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin: 2.5rem 0 0.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.year-heading:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* -----------------------------------------------------------
+   About page
+   ----------------------------------------------------------- */
+.avatar-block {
+  width: 84px;
+  height: 84px;
+  border-radius: 4px;
+  background: linear-gradient(160deg, var(--stripe-1), var(--stripe-6));
+  color: #fff;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.credentials {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.credentials li {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.credentials li:last-child { border-bottom: 1px solid var(--line); }
+.credentials .label { color: var(--ink-muted); }
+
+/* -----------------------------------------------------------
+   Research / publications
+   ----------------------------------------------------------- */
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pub-list li {
+  border-top: 1px solid var(--line);
+  padding: 1.3rem 0;
+}
+.pub-list li:last-child { border-bottom: 1px solid var(--line); }
+.pub-list .pub-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+}
+.pub-list .pub-authors {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  margin: 0 0 0.3rem;
+}
+.pub-list .pub-venue {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+/* -----------------------------------------------------------
+   Contact page
+   ----------------------------------------------------------- */
+.contact-links {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2.5rem;
+}
+.contact-links li {
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 0.98rem;
+}
+.contact-links li:last-child { border-bottom: 1px solid var(--line); }
+.contact-links a { text-decoration: none; }
+.contact-links a:hover { text-decoration: underline; }
+
+form.contact-form {
+  font-family: var(--sans);
+  max-width: 480px;
+}
+form.contact-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin: 1.1rem 0 0.35rem;
+}
+form.contact-form input,
+form.contact-form textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+form.contact-form textarea { resize: vertical; min-height: 120px; }
+
+form.contact-form button {
+  margin-top: 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 3px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+}
+form.contact-form button:hover { background: var(--accent-dark); }
+
+.form-note {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+}
+
+/* -----------------------------------------------------------
+   Single post page
+   ----------------------------------------------------------- */
+article.post h1 { margin-bottom: 0.4rem; }
+article.post .meta { margin-bottom: 2rem; }
+article.post p { font-size: 1.05rem; }
+article.post h2 { margin-top: 2.2rem; }
+
+.back-link {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+
+/* -----------------------------------------------------------
+   Footer
+   ----------------------------------------------------------- */
+footer.site-footer {
+  border-top: 1px solid var(--line);
+}
+.footer-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+.footer-inner a { color: var(--ink-muted); }
+
+/* -----------------------------------------------------------
+   Responsive
+   ----------------------------------------------------------- */
+@media (max-width: 560px) {
+  h1 { font-size: 1.7rem; }
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  nav.site-nav { gap: 1rem; flex-wrap: wrap; }
+  .credentials li, .pub-list .pub-title { font-size: 0.92rem; }
+}
